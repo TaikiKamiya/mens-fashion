@@ -1,57 +1,172 @@
 body {
-    font-family: sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
-    margin: 0;
-    padding: 0;
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #f5f5f5;
 }
 header {
-    background-color: #fff;
-    padding: 30px 20px;
+  background-color: #fff;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+h1 {
+  margin: 0;
+  font-size: 1.8em;
+}
+
+/* ロゴ */
+.site-logo {
+    max-width: 250px;
+    height: auto;
+    display: block;
+    margin: 10px auto 0;
+  }  
+.menu-toggle {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.main-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  background: #f9f9f9;
+  flex-wrap: wrap;
+}
+.main-menu li {
+  position: relative;
+}
+.main-menu > ul > li {
+  margin: 0 10px;
+}
+.main-menu a {
+  text-decoration: none;
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+}
+.submenu {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  position: absolute;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+.dropdown:hover .submenu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+.submenu li a {
+  white-space: nowrap;
+}
+main section {
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+footer {
+  background: #fff;
+  text-align: center;
+  font-size: 0.9em;
+  color: #888;
+  padding: 15px;
+  border-top: 1px solid #ccc;
+}
+
+/* トップページ-ランキング */
+.popular-ranking {
+    padding: 40px 20px;
+    background: #f9f9f9;
+  }
+  .popular-ranking h2 {
     text-align: center;
-    border-bottom: 1px solid #ccc;
-}
-header h1 {
-    margin: 0;
-    font-size: 2em;
-}
-header p {
-    color: #666;
-}
-.products {
+    margin-bottom: 30px;
+    font-size: 1.5em;
+  }
+  .ranking {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  .ranking-row {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 30px 10px;
-    max-width: 1000px;
-    margin: auto;
-    background-color: #fff;
-}
-.product {
-    width: 45%;
-    background: #fdfdfd;
-    border: 1px solid #ddd;
-    margin: 10px;
+    gap: 20px;
+  }
+  .item-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    width: 300px;
     padding: 15px;
-    box-shadow: 2px 2px 4px rgba(0,0,0,0.05);
-}
-.product img {
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .item-card img {
     width: 100%;
     height: auto;
-}
-.product h2 {
-    font-size: 1.1em;
+    border-radius: 4px;
+  }
+  .item-card h3 {
     margin: 10px 0 5px;
-}
-.product p {
-    font-size: 0.95em;
-    color: #555;
-}
-footer {
-    text-align: center;
-    font-size: 0.8em;
-    color: #888;
-    padding: 20px;
-    background-color: #fff;
-    border-top: 1px solid #ccc;
+    font-size: 1.1em;
+  }
+  .item-card p {
+    font-size: 0.9em;
+    color: #666;
+  }
+  .item-card a {
+    display: inline-block;
+    margin-top: 10px;
+    background: #007acc;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  .item-card a:hover {
+    background: #005fa3;
+  }
+  
+/* モバイル対応 */
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  .main-menu {
+    display: none;
+    flex-direction: column;
+  }
+  .main-menu ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .main-menu.show {
+    display: flex;
+  }
+  .main-menu li {
+    width: 100%;
+  }
+  .dropdown:hover .submenu {
+    display: none;
+  }
+  .dropdown.open .submenu {
+    display: block !important;
+    opacity: 1;
+    visibility: visible;
+    position: static;
+    box-shadow: none;
+  }
 }
