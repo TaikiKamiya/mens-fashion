@@ -225,22 +225,3 @@ $(function() {
         });
     });
 });
-
-let currentIndex = 0;
-const track = document.querySelector('.carousel-track');
-const slides = document.querySelectorAll('.carousel-slide');
-
-document.querySelector('.carousel-next').addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % slides.length;
-  updateCarousel();
-});
-
-document.querySelector('.carousel-prev').addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-  updateCarousel();
-});
-
-function updateCarousel() {
-  track.style.transform = `translateX(-${100 * currentIndex}%)`;
-}
-
